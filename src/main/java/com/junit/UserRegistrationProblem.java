@@ -19,6 +19,13 @@ package com.junit;
  * UC8 :- Rule4 – Has exactly 1 Special Character
  *        - NOTE – All rules must be passed
  * UC9 :- Should clear all email samples provided separately
+ * UC10 :-Write JUnit Test to validate the User Entry for First Name, Last Name,Email, Mobile, and Password.
+ *         - Write Junit Test for Happy as well as Sad test  case.
+ *         - Happy Test Case validates the Entry Successfully
+ *         - Sad Test Cases fails the Entry
+ *
+ * UC11 :- Write JUnit Parameterised Test to validate multiple entry for the Email Address.
+ *
  */
 
 /**
@@ -35,7 +42,7 @@ public class UserRegistrationProblem {
      * @param firstname of string
      * @return username
      */
-    public static boolean isValidUsername(String firstname) {
+    public static boolean isValidUserName(String firstname) {
 
         /**
          *  Regex to check valid username.
@@ -290,6 +297,35 @@ public class UserRegistrationProblem {
          */
         return m.matches();
     }
+    public static boolean isemailValidation(String emailID){
+        /**
+         * regex pattern for email
+         * 1)must contain character before @
+         * 2)must contain @ symbol after char
+         * 3)must contain char after @
+         * 4)must contain "."  symbol before com or in
+         */
+        String regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";
+        /**
+         * Compile the Regex
+         */
+        Pattern p = Pattern.compile(regex);
+        /**
+         * If the useremail is empty then return false
+         */
+        if (emailID == null) {
+            return false;
+        }
+        /**
+         * Pattern class contains matcher() method to find matching between given useremail
+         * and regular expression.
+         */
+        Matcher m = p.matcher(emailID);
+        /**
+         * Return if the useremail matched the Regex
+         */
+        return m.matches();
+    }
     /**
      * create a main method , all program execute in main method
      * @param args no arguments
@@ -300,7 +336,7 @@ public class UserRegistrationProblem {
          *  Test Case: 1 for Fist Name
          */
         String str1 = "Nilofar"; //first name
-        System.out.println(isValidUsername(str1));
+        System.out.println(isValidUserName(str1));
         /**
          * Test Case: 2 for last Name
          */
@@ -336,49 +372,12 @@ public class UserRegistrationProblem {
          */
         String str8 ="Bridgelabz@1"; //userpassword4
         System.out.println(isValidPassword4(str8));
+        /**
+         *  Test Case: 9 for email validation
+         */
+        String str9 ="nilofarmujawar1118@gmail.com"; //emailValidation4
+        System.out.println(isemailValidation(str9));
 
-        ArrayList<String> emails = new ArrayList<String>();
-        emails.add("abc@yahoo.com");
-        emails.add("abc-100@yahoo.com");
-        emails.add("abc.100@yahoo.com");
-        emails.add("abc111@abc.com");
-        emails.add("abc-100@abc.net");
-        emails.add("abc.100@abc.com.au");
-        emails.add("abc@1.com");
-        emails.add("abc#@gmail.com.com");
-        emails.add("abc+100@gmail.com");
-        //Add invalid emails in list
-        emails.add("abc");
-        emails.add("abc@.com.my");
-        emails.add("abc123@gmail.a");
-        emails.add("abc123@.com");
-        emails.add("abc123@.com.com");
-        emails.add(".abc@abc.com");
-        emails.add("abc()*@gmail.com");
-        emails.add("abc@%*.com");
-        emails.add("abc..2002@gmail.com");
-        emails.add("abc.@gmail.com");
-        emails.add("abc@abc@gmail.com");
-        emails.add("abc@gmail.com.1a");
-        emails.add("abc@gmail.com.aa.au");
-        /**
-         *  Regular Expression
-         */
-        String regex = "^(.+)@(.+)$";
-        /**
-         * Compile regular expression to get the pattern
-         */
-        Pattern pattern = Pattern.compile(regex);
-        /**
-         * Iterate emails array list
-         */
-        for(String email : emails){
-            /**
-             * Create instance of matcher
-             */
-            Matcher matcher = pattern.matcher(email);
-            System.out.println(email +" : "+ matcher.matches()+"\n");
-        }
     }
 }
 
