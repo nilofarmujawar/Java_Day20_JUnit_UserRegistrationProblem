@@ -19,6 +19,10 @@ package com.junit;
  * UC8 :- Rule4 – Has exactly 1 Special Character
  *        - NOTE – All rules must be passed
  * UC9 :- Should clear all email samples provided separately
+ * UC10 :-Write JUnit Test to validate the User Entry for First Name, Last Name,Email, Mobile, and Password.
+ *         - Write Junit Test for Happy as well as Sad test  case.
+ *         - Happy Test Case validates the Entry Successfully
+ *         - Sad Test Cases fails the Entry
  */
 
 /**
@@ -35,7 +39,7 @@ public class UserRegistrationProblem {
      * @param firstname of string
      * @return username
      */
-    public static boolean isValidUsername(String firstname) {
+    public static boolean isValidUserName(String firstname) {
 
         /**
          *  Regex to check valid username.
@@ -300,7 +304,7 @@ public class UserRegistrationProblem {
          *  Test Case: 1 for Fist Name
          */
         String str1 = "Nilofar"; //first name
-        System.out.println(isValidUsername(str1));
+        System.out.println(isValidUserName(str1));
         /**
          * Test Case: 2 for last Name
          */

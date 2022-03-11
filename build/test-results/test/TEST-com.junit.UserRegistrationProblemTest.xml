@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.junit.UserRegistrationProblemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-11T06:30:07" hostname="DESKTOP-617Q1NQ" time="0.132">
-  <properties/>
-  <testcase name="shouldAnswerWithTrue()" classname="com.junit.UserRegistrationProblemTest" time="0.132"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
