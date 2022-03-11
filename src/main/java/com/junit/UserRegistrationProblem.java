@@ -4,6 +4,9 @@ package com.junit;
  *        - First name starts with Cap and has minimum 3 characters
  * UC2 :- As a User need to enter a valid Last Name
  *        - Last name starts with Cap and has minimum 3 characters
+ * UC3 :- As a User need to enter  a valid email
+ *        - E.g. abc.xyz@bl.co.in
+ *        - Email has 3 mandatory parts (abc, bl& co) and 2 optional (xyz & in) with precise @ and . positions
  */
 
 /**
@@ -83,7 +86,38 @@ public class UserRegistrationProblem {
         return m.matches();
     }
 
+    /**
+     * Function to validate the useremail
+     * @param email
+     * @return matcher user email
+     */
+    public static boolean isValidUserEmail(String email) {
 
+        /**
+         * Regex to check valid user mail.
+         */
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        /**
+         * Compile the Regex
+         */
+        Pattern p = Pattern.compile(regex);
+        /**
+         * If the useremail is empty then return false
+         */
+        if (email == null) {
+            return false;
+        }
+        /**
+         * Pattern class contains matcher() method to find matching between given useremail
+         * and regular expression.
+         */
+        Matcher m = p.matcher(email);
+        /**
+         * Return if the useremail matched the Regex
+         */
+        return m.matches();
+    }
+    
     /**
      * create a main method , all program execute in main method
      * @param args no arguments
@@ -91,14 +125,19 @@ public class UserRegistrationProblem {
     public static void main(String[] args) {
 
         /**
-         *  Test Case: 1
+         *  Test Case: 1 for Fist Name
          */
         String str1 = "Nilofar";
         System.out.println(isValidUsername(str1));
         /**
-         * Test Case: 2
+         * Test Case: 2 for last Name
          */
         String str2 = "Mujawar";
         System.out.println(isValidUserLastName(str2));
+        /**
+         *  Test Case: 3 for Email
+         */
+        String str3 ="abc.xyz@bl.co.in"; //email
+        System.out.println(isValidUserEmail(str3));
     }
 }
