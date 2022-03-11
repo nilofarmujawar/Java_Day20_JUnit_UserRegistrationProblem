@@ -16,6 +16,8 @@ package com.junit;
  *        - NOTE – All rules must be passed
  * UC7 :- Rule3 – Should  have at least 1 numeric number in the password
  *       - NOTE – All rules must be passed
+ * UC8 :- Rule4 – Has exactly 1 Special Character
+ *        - NOTE – All rules must be passed
  */
 
 
@@ -255,6 +257,38 @@ public class UserRegistrationProblem {
          */
         return m.matches();
     }
+    public static boolean isValidPassword4(String password){
+        /**
+         * Regex to check valid password.
+         * 1) ^ represents starting character of the string.
+         * 2) {8,} represents at least 8 characters or more than that characters.
+         * 3) [a-zA-z1-9] represents a lower case alphabet must occur at least 8 or more than that.
+         * 4) [A-Z]{1} represents an upper case alphabet that must occur at least once.
+         * 5) [1-9]{1}represents a digit must occur at least once.
+         * 6) [@$^]{1} represents a at least once special character.
+         * 6) $ represents the end of the string.
+         */
+        String regex ="^[A-Z]{1}+[a-zA-z1-9]{9,}[@$^]{1}[1-9]{1}$";
+        /**
+         * Compile the Regex
+         */
+        Pattern p = Pattern.compile(regex);
+        /**
+         * If the password is empty then return false
+         */
+        if (password == null) {
+            return false;
+        }
+        /**
+         * Pattern class contains matcher() method to find matching between given password
+         *  and regular expression.
+         */
+        Matcher m = p.matcher(password);
+        /**
+         *  Return if the password matched the Regex
+         */
+        return m.matches();
+    }
     /**
      * create a main method , all program execute in main method
      * @param args no arguments
@@ -296,6 +330,11 @@ public class UserRegistrationProblem {
          */
         String str7 ="Bridgelabz1"; //userpassword3
         System.out.println(isValidPassword3(str7));
+        /**
+         *  Test Case: 8 for password rule no 3
+         */
+        String str8 ="Bridgelabz@1"; //userpassword4
+        System.out.println(isValidPassword4(str8));
 
     }
 }
