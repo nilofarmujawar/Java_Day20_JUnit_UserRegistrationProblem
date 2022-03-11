@@ -19,12 +19,7 @@ package com.junit;
  * UC8 :- Rule4 – Has exactly 1 Special Character
  *        - NOTE – All rules must be passed
  * UC9 :- Should clear all email samples provided separately
- * UC10 :-Write JUnit Test to validate the User Entry for First Name, Last Name,Email, Mobile, and Password.
- *         - Write Junit Test for Happy as well as Sad test  case.
- *         - Happy Test Case validates the Entry Successfully
- *         - Sad Test Cases fails the Entry
  *
- * UC11 :- Write JUnit Parameterised Test to validate multiple entry for the Email Address.
  *
  */
 
