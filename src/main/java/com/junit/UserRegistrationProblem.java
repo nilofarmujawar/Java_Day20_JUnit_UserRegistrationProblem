@@ -23,6 +23,9 @@ package com.junit;
  *         - Write Junit Test for Happy as well as Sad test  case.
  *         - Happy Test Case validates the Entry Successfully
  *         - Sad Test Cases fails the Entry
+ *
+ * UC11 :- Write JUnit Parameterised Test to validate multiple entry for the Email Address.
+ *
  */
 
 /**
@@ -36,6 +39,7 @@ public class UserRegistrationProblem {
     /**
      * create  method name as isValidUsername this is parameterised
      * In this method function to validate the username
+     *
      * @param firstname of string
      * @return username
      */
@@ -72,10 +76,11 @@ public class UserRegistrationProblem {
     /**
      * Create a method name as isValidUserLastName, this is parameterized method
      * Function to validate the userlastname
+     *
      * @param lastname
      * @return userlastname
      */
-    public static boolean isValidUserLastName(String lastname)  {
+    public static boolean isValidUserLastName(String lastname) {
 
         /**
          *  Regex to check valid userlastname.
@@ -105,6 +110,7 @@ public class UserRegistrationProblem {
 
     /**
      * Function to validate the useremail
+     *
      * @param email
      * @return matcher user email
      */
@@ -137,10 +143,11 @@ public class UserRegistrationProblem {
 
     /**
      * create a method name as isValidMobileNo this is parameterized method
+     *
      * @param mobileNumber
      * @return boolean value
      */
-    public static boolean isValidMobileNo(String mobileNumber)  {
+    public static boolean isValidMobileNo(String mobileNumber) {
         /**
          * (0/91): number starts with (0/91)
          * [7-9]: starting of the number may contain a digit between 0 to 9
@@ -160,12 +167,13 @@ public class UserRegistrationProblem {
 
     /**
      * create a method name as isValidPassword this is parameterized method
-     *  Function to validate the userpassword
-     *  Function to validate the password.
-     * @param password
+     * Function to validate the userpassword
+     * Function to validate the password.
+     *
+     * @param password1
      * @return password
      */
-    public static boolean isValidPassword1(String password){
+    public static boolean isValidPassword1(String password1) {
 
         /**
          * Regex to check valid password.
@@ -181,14 +189,14 @@ public class UserRegistrationProblem {
         /**
          * If the password is empty then return false
          */
-        if (password == null) {
+        if (password1 == null) {
             return false;
         }
         /**
          *  Pattern class contains matcher() method to find matching between given password
          *  and regular expression.
          */
-        Matcher m = p.matcher(password);
+        Matcher m = p.matcher(password1);
         /**
          *  Return if the password matched the Regex
          */
@@ -198,10 +206,11 @@ public class UserRegistrationProblem {
     /**
      * create a method name as isValidPassword2.
      * This is parameterized method
-     * @param password
+     *
+     * @param password2
      * @return password
      */
-    public static boolean isValidPassword2(String password){
+    public static boolean isValidPassword2(String password2) {
         /**
          * Regex to check valid password.
          * 1) ^ represents starting character of the string.
@@ -218,20 +227,21 @@ public class UserRegistrationProblem {
         /**
          *  If the password is empty then return false
          */
-        if (password == null) {
+        if (password2 == null) {
             return false;
         }
         /**
          * Pattern class contains matcher() method to find matching between given password
          * and regular expression.
          */
-        Matcher m = p.matcher(password);
+        Matcher m = p.matcher(password2);
         /**
          *  Return if the password matched the Regex
          */
         return m.matches();
     }
-    public static boolean isValidPassword3(String password){
+
+    public static boolean isValidPassword3(String password3) {
         /**
          * Regex to check valid password.
          * 1) ^ represents starting character of the string.
@@ -249,20 +259,21 @@ public class UserRegistrationProblem {
         /**
          * If the password is empty then return false
          */
-        if (password == null) {
+        if (password3 == null) {
             return false;
         }
         /**
          * Pattern class contains matcher() method to find matching between given password
          *  and regular expression.
          */
-        Matcher m = p.matcher(password);
+        Matcher m = p.matcher(password3);
         /**
          * Return if the password matched the Regex
          */
         return m.matches();
     }
-    public static boolean isValidPassword4(String password){
+
+    public static boolean isValidPassword4(String password4) {
         /**
          * Regex to check valid password.
          * 1) ^ represents starting character of the string.
@@ -273,7 +284,7 @@ public class UserRegistrationProblem {
          * 6) [@$^]{1} represents a at least once special character.
          * 6) $ represents the end of the string.
          */
-        String regex ="^[A-Z]{1}+[a-zA-z1-9]{9,}[@$^]{1}[1-9]{1}$";
+        String regex = "^[A-Z]{1}+[a-zA-z1-9]{9,}[@$^]{1}[1-9]{1}$";
         /**
          * Compile the Regex
          */
@@ -281,21 +292,54 @@ public class UserRegistrationProblem {
         /**
          * If the password is empty then return false
          */
-        if (password == null) {
+        if (password4 == null) {
             return false;
         }
         /**
          * Pattern class contains matcher() method to find matching between given password
          *  and regular expression.
          */
-        Matcher m = p.matcher(password);
+        Matcher m = p.matcher(password4);
         /**
          *  Return if the password matched the Regex
          */
         return m.matches();
     }
+
+    public static boolean isemailValidation(String emailID) {
+        /**
+         * regex pattern for email
+         * 1)must contain character before @
+         * 2)must contain @ symbol after char
+         * 3)must contain char after @
+         * 4)must contain "."  symbol before com or in
+         */
+        String regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";
+        /**
+         * Compile the Regex
+         */
+        Pattern p = Pattern.compile(regex);
+        /**
+         * If the useremail is empty then return false
+         */
+        if (emailID == null) {
+            return false;
+        }
+        /**
+         * Pattern class contains matcher() method to find matching between given useremail
+         * and regular expression.
+         */
+        Matcher m = p.matcher(emailID);
+        /**
+         * Return if the useremail matched the Regex
+         */
+        return m.matches();
+    }
+
+
     /**
      * create a main method , all program execute in main method
+     *
      * @param args no arguments
      */
     public static void main(String[] args) {
@@ -313,77 +357,41 @@ public class UserRegistrationProblem {
         /**
          *  Test Case: 3 for Email
          */
-        String str3 ="nilofar.mujawar@bl.co.in"; //email
+        String str3 = "nilofar.mujawar@bl.co.in"; //email
         System.out.println(isValidUserEmail(str3));
         /**
          * Test Case: 4 for mobile no
          */
-        String str4 ="+91-9919819801"; //usermobilenumber
+        String str4 = "+91-9919819801"; //usermobilenumber
         System.out.println(isValidMobileNo(str4));
         /**
          *  Test Case: 5 for password rule no 1
          */
-        String str5 ="bridgeabz"; //userpassword1
+        String str5 = "bridgeabz"; //userpassword1
         System.out.println(isValidPassword1(str5));
         /**
          *  Test Case: 6 for password rule no 2
          */
-        String str6 ="Bridgelabz"; //userpassword2
+        String str6 = "Bridgelabz"; //userpassword2
         System.out.println(isValidPassword2(str6));
         /**
          *  Test Case: 7 for password rule no 3
          */
-        String str7 ="Bridgelabz1"; //userpassword3
+        String str7 = "Bridgelabz1"; //userpassword3
         System.out.println(isValidPassword3(str7));
         /**
          *  Test Case: 8 for password rule no 3
          */
-        String str8 ="Bridgelabz@1"; //userpassword4
+        String str8 = "Bridgelabz@1"; //userpassword4
         System.out.println(isValidPassword4(str8));
+        /**
+         *  Test Case: 9 for email validation
+         */
+        String str9 = "nilofarmujawar1118@gmail.com"; //emailValidation4
+        System.out.println(isemailValidation(str9));
 
-        ArrayList<String> emails = new ArrayList<String>();
-        emails.add("abc@yahoo.com");
-        emails.add("abc-100@yahoo.com");
-        emails.add("abc.100@yahoo.com");
-        emails.add("abc111@abc.com");
-        emails.add("abc-100@abc.net");
-        emails.add("abc.100@abc.com.au");
-        emails.add("abc@1.com");
-        emails.add("abc#@gmail.com.com");
-        emails.add("abc+100@gmail.com");
-        //Add invalid emails in list
-        emails.add("abc");
-        emails.add("abc@.com.my");
-        emails.add("abc123@gmail.a");
-        emails.add("abc123@.com");
-        emails.add("abc123@.com.com");
-        emails.add(".abc@abc.com");
-        emails.add("abc()*@gmail.com");
-        emails.add("abc@%*.com");
-        emails.add("abc..2002@gmail.com");
-        emails.add("abc.@gmail.com");
-        emails.add("abc@abc@gmail.com");
-        emails.add("abc@gmail.com.1a");
-        emails.add("abc@gmail.com.aa.au");
-        /**
-         *  Regular Expression
-         */
-        String regex = "^(.+)@(.+)$";
-        /**
-         * Compile regular expression to get the pattern
-         */
-        Pattern pattern = Pattern.compile(regex);
-        /**
-         * Iterate emails array list
-         */
-        for(String email : emails){
-            /**
-             * Create instance of matcher
-             */
-            Matcher matcher = pattern.matcher(email);
-            System.out.println(email +" : "+ matcher.matches()+"\n");
         }
     }
-}
+
 
 

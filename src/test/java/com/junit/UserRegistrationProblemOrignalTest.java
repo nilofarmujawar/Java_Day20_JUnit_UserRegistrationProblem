@@ -3,7 +3,7 @@ package com.junit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class UserRegistrationTest{
+public class UserRegistrationProblemOrignalTest{
 
     boolean result;
     UserRegistrationProblem userTest = new UserRegistrationProblem();
@@ -28,7 +28,7 @@ public class UserRegistrationTest{
 
     @Test
     public void lastName_IsValid_FailTest() {
-        result = userTest.isValidUserLastName("Mujawar7@");
+        result = userTest.isValidUserLastName("Mujawar");
         Assertions.assertEquals(true,result);
     }
 
@@ -40,19 +40,19 @@ public class UserRegistrationTest{
 
     @Test
     public void Email_IsValid_FailTest() {
-        result = userTest.isValidUserEmail("abc1236");
+        result = userTest.isValidUserEmail("nilofar.mujawar@bl.co.in");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void mobileNumber_isValidMobileNo() {
-        result = userTest.isValidMobileNo("91 8955655668");
+        result = userTest.isValidMobileNo("9955655668");
         Assertions.assertEquals(true,result);
     }
 
     @Test
     public void mobileNumber_IsValid_FailTest() {
-        result = userTest.isValidMobileNo("89556556685665");
+        result = userTest.isValidMobileNo("8955655668");
         Assertions.assertEquals(true,result);
     }
 
@@ -72,11 +72,11 @@ public class UserRegistrationTest{
         result = userTest.isValidPassword2("Bridgelabz");
         Assertions.assertEquals(true, result);
     }
-        @Test
-        public void password_IsValid_FailTest2() {
-            result = userTest.isValidPassword2("Bridgelabz@1");
-            Assertions.assertEquals(true, result);
-        }
+    @Test
+    public void password_IsValid_FailTest2() {
+        result = userTest.isValidPassword2("Bridgelabz1");
+        Assertions.assertEquals(true, result);
+    }
     @Test
     public void password_IsValid_PassTest3() {
         result = userTest.isValidPassword3("Bridgelabz1");
@@ -84,7 +84,7 @@ public class UserRegistrationTest{
     }
     @Test
     public void password_IsValid_FailTest3() {
-        result = userTest.isValidPassword3("Bridgelabz@123");
+        result = userTest.isValidPassword3("Bridgelabz123");
         Assertions.assertEquals(true, result);
     }
     @Test
@@ -94,7 +94,7 @@ public class UserRegistrationTest{
     }
     @Test
     public void password_IsValid_FailTest4() {
-        result = userTest.isValidPassword4("Bridgelabz123@");
+        result = userTest.isValidPassword4("Bridgelabz@5");
         Assertions.assertEquals(true, result);
     }
 }
